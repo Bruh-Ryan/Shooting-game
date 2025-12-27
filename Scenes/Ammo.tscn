@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://dq88lb2acmcnu"]
+
+[ext_resource type="Texture2D" uid="uid://ditaq08yvb1ho" path="res://Sprites/industrial-zone-tileset-pixel-art/4 Animated objects/Card.png" id="1_34e3l"]
+[ext_resource type="Script" uid="uid://ca61o1n6lnd3l" path="res://Script/ammo.gd" id="1_rai1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34e3l"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rai1g"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eat8k"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co7pa"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3trbr"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqng6"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1wup"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oh2l"]
+atlas = ExtResource("1_34e3l")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rhov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34e3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rai1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eat8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co7pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3trbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqng6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1wup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oh2l")
+}],
+"loop": true,
+"name": &"idel_coin",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6mp37"]
+radius = 4.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_rai1g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4rhov")
+animation = &"idel_coin"
+autoplay = "idel_coin"
+frame_progress = 0.59801334
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_6mp37")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

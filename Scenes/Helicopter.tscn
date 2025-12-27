@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://pafaagegbfgw"]
+
+[ext_resource type="Texture2D" uid="uid://bfwixlbupjxyn" path="res://Sprites/drones-pack-pixel-art/1 Drones/4/Idle.png" id="1_fbkff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1t86"]
+atlas = ExtResource("1_fbkff")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrxjj"]
+atlas = ExtResource("1_fbkff")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q1uw"]
+atlas = ExtResource("1_fbkff")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4anun"]
+atlas = ExtResource("1_fbkff")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83nbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1t86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrxjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q1uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4anun")
+}],
+"loop": true,
+"name": &"Idel",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_om245"]
+
+[node name="Helicopter_Ammo" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_83nbd")
+animation = &"Idel"
+autoplay = "Idel"
+frame_progress = 0.3193993
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_om245")
